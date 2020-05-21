@@ -102,12 +102,6 @@ class PureEntities extends PluginBase implements CommandExecutor{
 	/** @var  PureEntities $instance */
 	private static $instance;
 
-	/** @var string $loglevel */
-	private static $loglevel;
-	/** @var PEXCustomLogger $logger */
-	private static $logger;
-
-	// logging constants for method call 'logOutput'
 	const NORM = \LogLevel::INFO;
 	const WARN = \LogLevel::WARNING;
 	const DEBUG = \LogLevel::DEBUG;
@@ -226,15 +220,6 @@ class PureEntities extends PluginBase implements CommandExecutor{
 			$this->getScheduler()->scheduleRepeatingTask(new InteractionTask($this), $this->getConfig()->getNested("performance.check-interactive-ticks", 10));
 			$this->getScheduler()->scheduleRepeatingTask(new EndermanLookingTask($this), $this->getConfig()->getNested("performance.check-enderman-looking", 10));
 		}
-
-		$enabled = self::$loggingEnabled = PluginConfiguration::getInstance()->getLogEnabled();
-		if($enabled){
-			$level = self::$loglevel = strtolower($this->getConfig()->getNested("logfile.loglevel", self::NORM));
-			$this->getServer()->getLogger()->info(TextFormat::GOLD . "[PureEntitiesX] Setting loglevel of logfile to " . $level);
-
-			$this->getServer()->getLogger()->notice("[PureEntitiesX] Enabled!");
-			$this->getServer()->getLogger()->notice("[PureEntitiesX] You're Running " . $this->getDescription()->getFullName());
-		}
 	}
 
 	public function onDisable(){
@@ -307,18 +292,19 @@ class PureEntities extends PluginBase implements CommandExecutor{
 	 */
 	public static function logOutput(string $logline, string $type = self::DEBUG){
 		if(self::$loggingEnabled){
-            switch($type){
-                case self::DEBUG:
-                    self::getInstance()->getLogger()->debug($logline);
-                    break;
-                case self::WARN:
-                    self::getInstance()->getLogger()->warning($logline);
-                    break;
-                case self::NORM:
-                default:
-                    self::getInstance()->getLogger()->info($logline);
-                    break;
-            }
+			switch($type){
+				case self::DEBUG:
+					self::getInstance()->getLogger()->debug($logline);
+					break;
+				case self::WARN:
+					self::getInstance()->getLogger()->warning($logline);
+					break;
+				case self::NORM:
+				default:
+					self::getInstance()->getLogger()->info($logline);
+					break;
+			}
+
 			return true;
 		}
 		return false;
