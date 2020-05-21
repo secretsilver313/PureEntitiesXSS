@@ -200,11 +200,11 @@ class PureEntities extends PluginBase implements CommandExecutor{
 		foreach(self::$registeredClasses as $name){
 			Entity::registerEntity($name);
 			if(
-				$name == IronGolem::class
-				|| $name == LargeFireball::class
-				|| $name == SmallFireball::class
-				|| $name == SnowGolem::class
-				|| $name == ZombieVillager::class
+				$name === IronGolem::class
+				|| $name === LargeFireball::class
+				|| $name === SmallFireball::class
+				|| $name === SnowGolem::class
+				|| $name === ZombieVillager::class
 			){
 				continue;
 			}
