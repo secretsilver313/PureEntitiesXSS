@@ -97,7 +97,7 @@ use revivalpmmp\pureentities\task\InteractionTask;
 use revivalpmmp\pureentities\tile\MobSpawner;
 use revivalpmmp\pureentities\utils\MobEquipper;
 
-class PureEntities extends PluginBase implements CommandExecutor{
+class PureEntities extends PluginBase{
 
 	/** @var  PureEntities $instance */
 	private static $instance;
