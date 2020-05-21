@@ -56,7 +56,7 @@ use pocketmine\Player;
 use pocketmine\Server;
 use revivalpmmp\pureentities\config\mobequipment\EntityConfig;
 use revivalpmmp\pureentities\data\NBTConst;
-use revivalpmmp\pureentities\entity\BaseEntity;
+use revivalpmmp\pureentities\entity\CreaturePEX;
 use revivalpmmp\pureentities\features\IntfCanEquip;
 use revivalpmmp\pureentities\PluginConfiguration;
 use revivalpmmp\pureentities\PureEntities;
@@ -93,7 +93,7 @@ class MobEquipment{
 	/**
 	 * The entity that this equipment object is for
 	 *
-	 * @var BaseEntity|IntfCanEquip
+	 * @var CreaturePEX|IntfCanEquip
 	 */
 	private $entity;
 
@@ -106,7 +106,7 @@ class MobEquipment{
 	 */
 	private $pickupTimer = null;
 
-	public function __construct(BaseEntity $entity){
+	public function __construct(CreaturePEX $entity){
 		$this->entity = $entity;
 		$this->pickupTimer = new TickCounter(PluginConfiguration::getInstance()->getPickupLootTicks());
 	}

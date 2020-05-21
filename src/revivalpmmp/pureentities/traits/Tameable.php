@@ -25,7 +25,7 @@ use pocketmine\math\Vector3;
 use pocketmine\network\mcpe\protocol\ActorEventPacket;
 use pocketmine\Player;
 use revivalpmmp\pureentities\data\NBTConst;
-use revivalpmmp\pureentities\entity\BaseEntity;
+use revivalpmmp\pureentities\entity\CreaturePEX;
 use revivalpmmp\pureentities\PluginConfiguration;
 use revivalpmmp\pureentities\PureEntities;
 
@@ -182,7 +182,7 @@ trait Tameable{
 	 * @return Vector3|null the position near the owner
 	 */
 
-	private function getPositionNearOwner(Player $owner, BaseEntity $pet) : Vector3{
+	private function getPositionNearOwner(Player $owner, CreaturePEX $pet) : Vector3{
 		$x = $owner->x + (mt_rand(2, 3) * (mt_rand(0, 1) == 1 ?: -1));
 		$z = $owner->z + (mt_rand(2, 3) * (mt_rand(0, 1) == 1 ?: -1));
 		$pos = PureEntities::getInstance()->getSuitableHeightPosition($x, $owner->y, $z, $pet->getLevel());

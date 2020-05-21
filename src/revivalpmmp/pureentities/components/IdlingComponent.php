@@ -25,7 +25,7 @@ use pocketmine\entity\Entity;
 use pocketmine\nbt\tag\CompoundTag;
 use pocketmine\Player;
 use revivalpmmp\pureentities\data\NBTConst;
-use revivalpmmp\pureentities\entity\BaseEntity;
+use revivalpmmp\pureentities\entity\CreaturePEX;
 use revivalpmmp\pureentities\features\IntfCanBreed;
 use revivalpmmp\pureentities\PluginConfiguration;
 use revivalpmmp\pureentities\PureEntities;
@@ -53,7 +53,7 @@ class IdlingComponent{
 	private $idlingCounter;
 
 	/**
-	 * @var BaseEntity
+	 * @var CreaturePEX
 	 */
 	private $baseEntity;
 
@@ -85,7 +85,7 @@ class IdlingComponent{
 	 */
 	private $idleChance = 0;
 
-	public function __construct(BaseEntity $baseEntity){
+	public function __construct(CreaturePEX $baseEntity){
 		$this->baseEntity = $baseEntity;
 		$pluginConfig = PluginConfiguration::getInstance();
 		$this->idleChance = $pluginConfig->getIdleChance();

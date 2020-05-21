@@ -26,7 +26,7 @@ use pocketmine\item\Item;
 use pocketmine\item\ItemIds;
 use revivalpmmp\pureentities\config\mobequipment\EntityConfig;
 use revivalpmmp\pureentities\config\mobequipment\helper\ArmorTypeChances;
-use revivalpmmp\pureentities\entity\BaseEntity;
+use revivalpmmp\pureentities\entity\CreaturePEX;
 use revivalpmmp\pureentities\features\IntfCanEquip;
 use revivalpmmp\pureentities\PureEntities;
 
@@ -48,9 +48,9 @@ class MobEquipper{
 	/**
 	 * Equips a mob (when IntfCanEquip is implemented) with random items
 	 *
-	 * @param BaseEntity $entity
+	 * @param CreaturePEX $entity
 	 */
-	public static function equipMob(BaseEntity $entity){
+	public static function equipMob(CreaturePEX $entity){
 		if($entity instanceof IntfCanEquip){
 			// check if configuration already cached - if not create it and store it
 			$entityConfig = MobEquipmentConfigHolder::getConfig($entity->getName());
