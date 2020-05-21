@@ -23,7 +23,6 @@ namespace revivalpmmp\pureentities;
 
 use pocketmine\block\BlockFactory;
 use pocketmine\command\Command;
-use pocketmine\command\CommandExecutor;
 use pocketmine\command\CommandSender;
 use pocketmine\entity\Entity;
 use pocketmine\item\Item;
@@ -33,9 +32,7 @@ use pocketmine\level\Position;
 use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
 use pocketmine\Server;
-use pocketmine\ThreadManager;
 use pocketmine\tile\Tile;
-use pocketmine\utils\TextFormat;
 use revivalpmmp\pureentities\block\MonsterSpawnerPEX;
 use revivalpmmp\pureentities\data\Color;
 use revivalpmmp\pureentities\entity\Bat;
