@@ -252,7 +252,8 @@ class PureEntities extends PluginBase{
 	 * @return null|Entity
 	 */
 	public function scheduleCreatureSpawn(Position $pos, int $entityid, Level $level, string $type, bool $baby = false, Entity $parentEntity = null, Player $owner = null){
-		$this->getServer()->getPluginManager()->callEvent($event = new CreatureSpawnEvent($this, $pos, $entityid, $level, $type));
+		$event = new CreatureSpawnEvent($this, $pos, $entityid, $level, $type);
+		$event->call();
 
 		if($event->isCancelled()){
 			return null;
