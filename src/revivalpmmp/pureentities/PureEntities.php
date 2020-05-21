@@ -430,7 +430,7 @@ class PureEntities extends PluginBase{
 							$mobName = strtolower($args[0]);
 							foreach(self::$registeredClasses as $registeredClass){
 								if(strcmp($mobName, strtolower($this->getShortClassName($registeredClass))) == 0){
-									self::scheduleCreatureSpawn($player->getPosition(), $registeredClass::NETWORK_ID, $player->getLevel(), "Monster", $isBaby);
+									$this->scheduleCreatureSpawn($player->getPosition(), $registeredClass::NETWORK_ID, $player->getLevel(), "Monster", $isBaby);
 									$sender->sendMessage("Spawned $mobName");
 
 									return true;
