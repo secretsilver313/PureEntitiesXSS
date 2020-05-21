@@ -248,6 +248,7 @@ class PureEntities extends PluginBase implements CommandExecutor{
 	 * @param bool        $baby
 	 * @param Entity|null $parentEntity
 	 * @param Player|null $owner
+	 *
 	 * @return null|Entity
 	 */
 	public function scheduleCreatureSpawn(Position $pos, int $entityid, Level $level, string $type, bool $baby = false, Entity $parentEntity = null, Player $owner = null){
@@ -280,14 +281,17 @@ class PureEntities extends PluginBase implements CommandExecutor{
 				return $entity;
 			}
 			self::logOutput("Cannot create entity [entityId:$entityid]", self::WARN);
+
 			return null;
 		}
 	}
 
 	/**
 	 * Logs an output to the plugin's logfile ...
+	 *
 	 * @param string $logline the output to be appended
 	 * @param string $type the type of output to log
+	 *
 	 * @return bool returns false on failure
 	 */
 	public static function logOutput(string $logline, string $type = self::DEBUG){
@@ -307,6 +311,7 @@ class PureEntities extends PluginBase implements CommandExecutor{
 
 			return true;
 		}
+
 		return false;
 	}
 
@@ -324,6 +329,7 @@ class PureEntities extends PluginBase implements CommandExecutor{
 	 * @param       $y                int the y position to start search
 	 * @param       $z                int the z position to start searching
 	 * @param Level $level Level the level object to search in
+	 *
 	 * @return null|Position    either NULL if no valid position was found or the final AIR spawn position
 	 */
 	public static function getSuitableHeightPosition($x, $y, $z, Level $level){
@@ -368,6 +374,7 @@ class PureEntities extends PluginBase implements CommandExecutor{
 	 * @param Command       $command
 	 * @param string        $label
 	 * @param array         $args
+	 *
 	 * @return bool
 	 */
 	public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool{
@@ -424,10 +431,12 @@ class PureEntities extends PluginBase implements CommandExecutor{
 								if(strcmp($mobName, strtolower($this->getShortClassName($registeredClass))) == 0){
 									self::scheduleCreatureSpawn($player->getPosition(), $registeredClass::NETWORK_ID, $player->getLevel(), "Monster", $isBaby);
 									$sender->sendMessage("Spawned $mobName");
+
 									return true;
 								}
 							}
 							$sender->sendMessage("Entity not found: $mobName");
+
 							return true;
 						}
 					}
@@ -437,6 +446,7 @@ class PureEntities extends PluginBase implements CommandExecutor{
 				}
 				break;
 		}
+
 		return $commandSuccessful;
 	}
 
@@ -444,6 +454,7 @@ class PureEntities extends PluginBase implements CommandExecutor{
 	 * Returns the "short" name of a class without namespace ...
 	 *
 	 * @param string $longClassName
+	 *
 	 * @return string
 	 */
 	private function getShortClassName(string $longClassName) : string{
@@ -453,6 +464,7 @@ class PureEntities extends PluginBase implements CommandExecutor{
 			$short = $longClassName;
 			$longClassName = strtok("\\");
 		}
+
 		return $short;
 	}
 
