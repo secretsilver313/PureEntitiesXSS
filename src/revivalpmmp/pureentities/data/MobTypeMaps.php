@@ -21,56 +21,57 @@ declare(strict_types=1);
 namespace revivalpmmp\pureentities\data;
 
 
+use pocketmine\entity\EntityIds;
+
 class MobTypeMaps{
-	const PASSIVE_DRY_MOBS = array(
-		"bat",
-		"chicken",
-		"cow",
-		"donkey",
-		"horse",
-		"husk",
-		"llama",
-		"mooshroom",
-		"mule",
-		"ocelot",
-		"parrot",
-		"pig",
-		"rabbit",
-		"sheep",
-	);
+	const PASSIVE_DRY_MOBS = [
+		EntityIds::BAT,
+		EntityIds::CHICKEN,
+		EntityIds::COW,
+		EntityIds::DONKEY,
+		EntityIds::HORSE,
+		EntityIds::LLAMA,
+		EntityIds::MOOSHROOM,
+		EntityIds::MULE,
+		EntityIds::OCELOT,
+		EntityIds::PARROT,
+		EntityIds::PIG,
+		EntityIds::RABBIT,
+		EntityIds::SHEEP
+	];
 
-	const PASSIVE_WET_MOBS = array(
-		"squid",
-		"salmon",
-		"pufferfish",
-		"tropicalfish",
-		"cod",
-		"dolphin"
-	);
+	const PASSIVE_WET_MOBS = [
+		EntityIds::COD,
+		EntityIds::DOLPHIN,
+		EntityIds::PUFFERFISH,
+		EntityIds::SALMON,
+		EntityIds::SQUID,
+		EntityIds::TROPICAL_FISH
+	];
 
-	const OVERWORLD_HOSTILE_MOBS = array(
-		"cave_spider",
-		"creeper",
-		"enderman",
-		"guardian",
-		"husk",
-		"polar_bear",
-		"skeleton",
-		"slime",
-		"spider",
-		"stray",
-		"witch",
-		"wolf",
-		"zombie"
-	);
+	const OVERWORLD_HOSTILE_MOBS = [
+		EntityIds::CAVE_SPIDER,
+		EntityIds::CREEPER,
+		EntityIds::ENDERMAN,
+		EntityIds::GUARDIAN,
+		EntityIds::HUSK,
+		EntityIds::POLAR_BEAR,
+		EntityIds::SKELETON,
+		EntityIds::SLIME,
+		EntityIds::SPIDER,
+		EntityIds::STRAY,
+		EntityIds::WITCH,
+		EntityIds::WOLF,
+		EntityIds::ZOMBIE
+	];
 
-	const NETHER_HOSTILE_MOBS = array(
-		"blaze",
-		"enderman",
-		"ghast",
-		"magma_cube",
-		"skeleton",
-		"wither_skeleton",
-		"zombie_pigman"
-	);
+	const NETHER_HOSTILE_MOBS = [
+		EntityIds::BLAZE,
+		EntityIds::ENDERMAN,
+		EntityIds::GHAST,
+		EntityIds::MAGMA_CUBE,
+		EntityIds::SKELETON,
+		EntityIds::WITHER_SKELETON,
+		EntityIds::ZOMBIE_PIGMAN
+	];
 }

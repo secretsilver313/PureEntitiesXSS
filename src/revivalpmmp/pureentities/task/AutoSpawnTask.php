@@ -71,11 +71,11 @@ class AutoSpawnTask extends Task{
 
 			// For now, spawning as overworld only.
 			foreach($level->getEntities() as $entity){
-				if(in_array(array_search($entity::NETWORK_ID, Data::NETWORK_IDS), MobTypeMaps::OVERWORLD_HOSTILE_MOBS)){
+				if(in_array($entity::NETWORK_ID, MobTypeMaps::OVERWORLD_HOSTILE_MOBS)){
 					$this->hostileMobs++;
-				}elseif(in_array(array_search($entity::NETWORK_ID, Data::NETWORK_IDS), MobTypeMaps::PASSIVE_DRY_MOBS)){
+				}elseif(in_array($entity::NETWORK_ID, MobTypeMaps::PASSIVE_DRY_MOBS)){
 					$this->passiveDryMobs++;
-				}elseif(in_array(array_search($entity::NETWORK_ID, Data::NETWORK_IDS), MobTypeMaps::PASSIVE_WET_MOBS)){
+				}elseif(in_array($entity::NETWORK_ID, MobTypeMaps::PASSIVE_WET_MOBS)){
 					$this->passiveWetMobs++;
 				}
 			}
@@ -287,7 +287,7 @@ class AutoSpawnTask extends Task{
 		if($this->isValidPackCenter($packCenter, $level) and $lightLevel < 7){
 
 			PureEntities::logOutput("AutoSpawnTask: light level at valid pack center is $lightLevel");
-			$mobId = Data::NETWORK_IDS[MobTypeMaps::OVERWORLD_HOSTILE_MOBS[array_rand(MobTypeMaps::OVERWORLD_HOSTILE_MOBS)]];
+			$mobId = array_rand(MobTypeMaps::OVERWORLD_HOSTILE_MOBS);
 			$this->spawnPackToLevel($packCenter, $mobId, $level, "hostile");
 		}
 		PureEntities::logOutput("AutoSpawnTask: Not a valid pack center.");
