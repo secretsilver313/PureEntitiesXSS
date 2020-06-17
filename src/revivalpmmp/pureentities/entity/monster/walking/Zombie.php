@@ -60,8 +60,8 @@ class Zombie extends WalkingMonster implements IntfCanEquip, IntfCanBreed, Monst
 
 	public function initEntity() : void{
 		parent::initEntity();
-		$this->speed = 1.1;
-		$this->setDamage([0, 2, 3, 4]);
+		$this->speed = 1.5;
+		$this->setDamage([7, 10, 11, 12]);
 
 		$this->mobEquipment = new MobEquipment($this);
 		$this->mobEquipment->init();
@@ -89,13 +89,13 @@ class Zombie extends WalkingMonster implements IntfCanEquip, IntfCanBreed, Monst
 
 		if($this->isAlive()){
 			if(15 < $this->getHealth()){
-				$this->setDamage([0, 2, 3, 4]);
+				$this->setDamage([7, 10, 11, 12]);
 			}else if(10 < $this->getHealth()){
-				$this->setDamage([0, 3, 4, 6]);
+				$this->setDamage([7, 10, 11, 12]);
 			}else if(5 < $this->getHealth()){
-				$this->setDamage([0, 3, 5, 7]);
+				$this->setDamage([7, 10, 11, 12]);
 			}else{
-				$this->setDamage([0, 4, 6, 9]);
+				$this->setDamage([7, 10, 11, 12]);
 			}
 		}
 	}
@@ -187,7 +187,7 @@ class Zombie extends WalkingMonster implements IntfCanEquip, IntfCanBreed, Monst
 	}
 
 	public function getMaxHealth() : int{
-		return 20;
+		return 70;
 	}
 
 	public function updateXpDropAmount() : void{
