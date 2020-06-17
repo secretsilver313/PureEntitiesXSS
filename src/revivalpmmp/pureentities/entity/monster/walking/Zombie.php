@@ -60,7 +60,7 @@ class Zombie extends WalkingMonster implements IntfCanEquip, IntfCanBreed, Monst
 
 	public function initEntity() : void{
 		parent::initEntity();
-		$this->speed = 1.5;
+		$this->speed = 2.1;
 		$this->setDamage([7, 10, 11, 12]);
 
 		$this->mobEquipment = new MobEquipment($this);
@@ -84,8 +84,8 @@ class Zombie extends WalkingMonster implements IntfCanEquip, IntfCanBreed, Monst
 		return "Zombie";
 	}
 
-	public function setHealth(float $amount) : void{
-		parent::setHealth($amount);
+	public function setHealth(70) : void{
+		parent::setHealth(70);
 
 		if($this->isAlive()){
 			if(15 < $this->getHealth()){
